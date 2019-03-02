@@ -64,6 +64,7 @@ RSpec.describe MoviesController, type: :controller do
       @movie = double("test_movie", title: "ruby", edit: 1)
       expect(Movie).to receive(:find).with(@id).and_return(@movie)
       get :edit, {id: 1}
+      expect(response).to render_template('edit')
     end
   end
   
